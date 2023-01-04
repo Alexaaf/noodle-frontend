@@ -1,0 +1,197 @@
+.auth-form-container{
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: black;
+}
+.auth-form-container, .login-form, .register-form{
+  display: flex;
+  flex-direction: column;
+}
+
+
+label{
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+input{
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border: thin;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #0000009f;
+}
+
+.imput-form{
+  border: thick;
+  color: #555;
+  background: darkgray;
+  padding: 1rem;
+  width: 95%;
+  align-self: left;
+}
+
+.quiz-form{
+  margin: 10px;
+  padding: 15px;
+  text-align: left;
+  display: flex;
+  justify-items: left;
+  flex-direction: column;
+}
+
+button{
+  border: none;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.link-btn{
+  background: none;
+  color: white;
+  text-decoration: underline;
+}
+
+.nav{
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.home-title{
+  font-size: 2rem;
+}
+
+.nav ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a{
+color: inherit;
+text-decoration: none;
+height: 100%;
+display: flex;
+align-items: center;
+padding: .25rem;
+}
+
+.nav li:hover{
+  background-color: #777;
+}
+
+.nav li.active{
+  background-color: #555;
+}
+
+.course-nav{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: .25rem;
+  font-size: 1.5rem;
+  font-family: 'Lucida Grande';
+}
+
+.course-list{
+  padding: 5;
+  margin: 3;
+  list-style: none;
+  display: flex;
+  gap: 5rem;
+}
+
+.course-list a{
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: .25rem;
+}
+
+.content{
+  display: flex;
+}
+.paper-move{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 50%;
+}
+
+.paper-move-course{
+  display: flex;
+  justify-items: auto;
+  width: 80%;
+  padding: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.button-allign{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: stretch;
+}
+
+.button-lecture{
+  width: 49.5%;
+  height: fit-content;
+  background-color: rgb(117, 117, 117);
+  padding: 20px;
+  border-radius: 0px;
+  gap: 0.5px;
+  cursor: pointer;
+}
+.button-lecture:hover{
+  background-color: rgb(67, 67, 67);
+}
+
+.button-quiz:hover{
+  background-color: rgb(67, 67, 67);
+}
+
+.button-quiz{
+  width: 49.5%;
+  height: 100%;
+  background-color: rgb(117, 117, 117);
+  padding: 20px;
+  border-radius: 0px;
+  gap: 0.5px;
+  cursor: pointer;
+}
+
+.account-content{
+  display: flex;
+  
+}
+
+.account-details{
+  width: 65%;
+  height: 80%;
+  padding: 0.3rem;
+  margin: 3;
+}

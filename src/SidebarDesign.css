@@ -1,0 +1,49 @@
+.sidebar{
+    width: 200px;
+    height: 100vh;
+    background-color: gray;
+
+}
+
+body{
+    margin: 0;
+    
+}
+
+.sidebar-list{
+    height: auto;
+    width: 100%;
+    padding: 0;
+}
+
+.sidebar-list .row{
+    width: 100%;
+    height: 40px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.row #icon{
+    flex: 30%;
+    display: grid;
+    place-items: center;
+}
+
+.sidebar-list #active {
+    background-color: rgb(50, 50, 50);
+
+}
+
+.sidebar-list .row:hover{
+    cursor: pointer;
+    background-color: rgb(67, 67, 67);
+}
+
+.row #title{
+    flex: 70%;
+    display: grid;
+    place-items: center;
+}
