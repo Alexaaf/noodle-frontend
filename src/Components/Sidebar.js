@@ -1,8 +1,12 @@
 import React from "react";
 import "../SidebarDesign.css";
 import {SidebarData} from './SidebarData'
+import { useNavigate } from "react-router-dom";
 
 function Sidebar(){
+
+    const navigate = useNavigate();
+
     return <div className="sidebar">
         <ul className="sidebar-list">
         {SidebarData.map((val,key)=>
@@ -12,7 +16,7 @@ function Sidebar(){
                     key={(key)} 
                     className="row"
                     id = {window.location.pathname == val.link ? "active" : ""}
-                    onClick={() => {window.location.pathname = val.link}}>
+                    onClick={() => {navigate(val.link)}}>
                     {" "}
                     <div id="icon">{val.icon}</div>
                     {" "}

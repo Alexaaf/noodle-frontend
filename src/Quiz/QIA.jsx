@@ -26,13 +26,28 @@ export const QIA = ({userID}) => {
     const [question8, setQuestion8] = useState('');
     const [question9, setQuestion9] = useState('');
     const [question10, setQuestion10] = useState('');
+
+    const [answerId, setAnswerId] = useState('');
+    const [answer1, setAnswer1] = useState('');
+    const [answer2, setAnswer2] = useState('');
+    const [answer3, setAnswer3] = useState('');
+    const [answer4, setAnswer4] = useState('');
+    const [answer5, setAnswer5] = useState('');
+    const [answer6, setAnswer6] = useState('');
+    const [answer7, setAnswer7] = useState('');
+    const [answer8, setAnswer8] = useState('');
+    const [answer9, setAnswer9] = useState('');
+    const [answer10, setAnswer10] = useState('');
+
     const [course, setCourse] = useState('');
+
     const [id, setID] = useState('');
+    const [quizId, setQuizID] = useState('');
 
 
     const [quizArray, setQuizArray] = useState([]);
     const [getQuiz, setgetQuiz] = useState(() =>{
-        fetch("http://localhost:8080/quiz/allQuizes")
+        fetch("http://localhost:8080/quiz/findQuizByCourse/IA")
             .then(res => res.json())
             .then((result)=>{setQuizArray(result);},[])
     })
@@ -43,11 +58,34 @@ export const QIA = ({userID}) => {
         e.preventDefault()
         const newQuiz={id, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, course}
         console.log(newQuiz)
+
         fetch("http://localhost:8080/quiz/addQuiz",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(newQuiz)
         }).then(() => {console.log("New quiz added!")})
+        
+        addAnswers();
+    }
+
+    function addAnswers(){
+
+        fetch("http://localhost:8080/quiz/getLastQuiz")
+            .then(resId => resId.json())
+            .then((resultID)=>{setQuizID(resultID)})
+        
+        
+        setQuizID(quizId + 1);
+        console.log({quizId});
+        
+
+        const newAnswerSet={id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, quizId}
+        console.log(newAnswerSet)
+        fetch("http://localhost:8080/answers/addAnswers",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(newAnswerSet)
+        }).then(() => {console.log("New Answers added!")})
     }
 
     const IDUser = {userID}.userID;
@@ -59,7 +97,7 @@ export const QIA = ({userID}) => {
                 <a href="/" className="home-title">Noodle</a>
                 <ul>
                     <li>
-                        <a href="/account">Account</a>
+                        <a href="/account">{userID}</a>
                     </li>
                     <li>
                         <a href="/grades">Grades</a>
@@ -78,43 +116,44 @@ export const QIA = ({userID}) => {
     
                             <label >Question 1: </label>
                             <br />
-                            <input className="imput-form" value={question1} onChange={(e) => {setQuestion1(e.target.value); setID("2"); setCourse("IA")}}/>
-    
+                            <input className="imput-form" value={question1} placeholder="Question" onChange={(e) => {setQuestion1(e.target.value); setCourse("IA")}}/>
+                            <input className="imput-form" value={answer1} placeholder="Answer" onChange={(e) => {setAnswer1(e.target.value)}}/>
                             <label >Question 2: </label>
                             <br />
-                            <input className="imput-form" value={question2} onChange={(e) => setQuestion2(e.target.value)}/>
-    
+                            <input className="imput-form" value={question2} placeholder="Question" onChange={(e) => setQuestion2(e.target.value)}/>
+                            <input className="imput-form" value={answer2} placeholder="Answer" onChange={(e) => {setAnswer2(e.target.value)}}/>
                             <label >Question 3: </label>
                             <br />
-                            <input className="imput-form" value={question3} onChange={(e) => setQuestion3(e.target.value)}/>
-    
+                            <input className="imput-form" value={question3} placeholder="Question" onChange={(e) => setQuestion3(e.target.value)}/>
+                            <input className="imput-form" value={answer3} placeholder="Answer" onChange={(e) => {setAnswer3(e.target.value)}}/>
                             <label >Question 4: </label>
                             <br />
-                            <input className="imput-form" value={question4} onChange={(e) => setQuestion4(e.target.value)}/>
-    
+                            <input className="imput-form" value={question4} placeholder="Question" onChange={(e) => setQuestion4(e.target.value)}/>
+                            <input className="imput-form" value={answer4} placeholder="Answer" onChange={(e) => {setAnswer4(e.target.value)}}/>
                             <label >Question 5: </label>
                             <br />
-                            <input className="imput-form" value={question5} onChange={(e) => setQuestion5(e.target.value)}/>
-    
+                            <input className="imput-form" value={question5} placeholder="Question" onChange={(e) => setQuestion5(e.target.value)}/>
+                            <input className="imput-form" value={answer5} placeholder="Answer" onChange={(e) => {setAnswer5(e.target.value)}}/>
                             <label >Question 6: </label>
                             <br />
-                            <input className="imput-form" value={question6} onChange={(e) => setQuestion6(e.target.value)}/>
-    
+                            <input className="imput-form" value={question6} placeholder="Question" onChange={(e) => setQuestion6(e.target.value)}/>
+                            <input className="imput-form" value={answer6} placeholder="Answer" onChange={(e) => {setAnswer6(e.target.value)}}/>
                             <label >Question 7: </label>
                             <br />
-                            <input className="imput-form" value={question7} onChange={(e) => setQuestion7(e.target.value)}/>
-    
+                            <input className="imput-form" value={question7} placeholder="Question" onChange={(e) => setQuestion7(e.target.value)}/>
+                            <input className="imput-form" value={answer7} placeholder="Answer" onChange={(e) => {setAnswer7(e.target.value)}}/>
                             <label >Question 8: </label>
                             <br />
-                            <input className="imput-form" value={question8} onChange={(e) => setQuestion8(e.target.value)}/>
-    
+                            <input className="imput-form" value={question8} placeholder="Question" onChange={(e) => setQuestion8(e.target.value)}/>
+                            <input className="imput-form" value={answer8} placeholder="Answer" onChange={(e) => {setAnswer8(e.target.value)}}/>
                             <label >Question 9: </label>
                             <br />
-                            <input className="imput-form" value={question9} onChange={(e) => setQuestion9(e.target.value)}/>
-    
+                            <input className="imput-form" value={question9} placeholder="Question" onChange={(e) => setQuestion9(e.target.value)}/>
+                            <input className="imput-form" value={answer9} placeholder="Answer" onChange={(e) => {setAnswer9(e.target.value)}}/>
                             <label >Question 10: </label>
                             <br />
-                            <input className="imput-form" value={question10} onChange={(e) => setQuestion10(e.target.value)}/>
+                            <input className="imput-form" value={question10} placeholder="Question" onChange={(e) => setQuestion10(e.target.value)}/>
+                            <input className="imput-form" value={answer10} placeholder="Answer" onChange={(e) => {setAnswer10(e.target.value)}}/>
                             <button type="submit" onClick={handleClickAdmin}>Submit</button>
                         </form>
                         </Paper>
@@ -131,7 +170,7 @@ export const QIA = ({userID}) => {
                 <a href="/" className="home-title">Noodle</a>
                 <ul>
                     <li>
-                        <a href="/account">Account</a>
+                        <a href="/account">{userID}</a>
                     </li>
                     <li>
                         <a href="/grades">Grades</a>
