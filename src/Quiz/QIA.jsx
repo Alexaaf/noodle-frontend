@@ -40,7 +40,7 @@ export const QIA = ({userID}) => {
     const [answer10, setAnswer10] = useState('');
 
     const [course, setCourse] = useState('');
-
+    const [studentId, setStudentId] = useState(userID);
     const [id, setID] = useState('');
     const [quizId, setQuizID] = useState('');
 
@@ -66,6 +66,19 @@ export const QIA = ({userID}) => {
         }).then(() => {console.log("New quiz added!")})
         
         addAnswers();
+    }
+
+    const handleClickStudent = (e) =>
+    {
+        e.preventDefault()
+        const newAnswerSet={id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, quizId, studentId}
+        console.log(newAnswerSet)
+        
+        fetch("http://localhost:8080/studentAnswers/addAnswers",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(newAnswerSet)
+        }).then(() => {console.log("New Student Answers added!")})
     }
 
     function addAnswers(){
@@ -153,8 +166,10 @@ export const QIA = ({userID}) => {
                             <label >Question 10: </label>
                             <br />
                             <input className="imput-form" value={question10} placeholder="Question" onChange={(e) => setQuestion10(e.target.value)}/>
+                            
                             <input className="imput-form" value={answer10} placeholder="Answer" onChange={(e) => {setAnswer10(e.target.value)}}/>
                             <button type="submit" onClick={handleClickAdmin}>Submit</button>
+                            
                         </form>
                         </Paper>
                          ))}
@@ -188,55 +203,47 @@ export const QIA = ({userID}) => {
                         <form className = "quiz-form">
     
                             <label >Question 1: </label>
-                            <label >{questions.question1}</label>
                             <br />
-                            <input className="imput-form" value={Q1} onChange={(e) => setQ1(e.target.value)}/>
-    
+                            <label>{questions.question1}</label>
+                            <input className="imput-form" value={answer1} placeholder="Answer" onChange={(e) => {setAnswer1(e.target.value); setQuizID(questions.id)}}/>
                             <label >Question 2: </label>
-                            <label >{questions.question2}</label>
                             <br />
-                            <input className="imput-form" value={Q2} onChange={(e) => setQ2(e.target.value)}/>
-    
+                            <label>{questions.question2}</label>
+                            <input className="imput-form" value={answer2} placeholder="Answer" onChange={(e) => {setAnswer2(e.target.value)}}/>
                             <label >Question 3: </label>
-                            <label >{questions.question3}</label>
                             <br />
-                            <input className="imput-form" value={Q3} onChange={(e) => setQ3(e.target.value)}/>
-    
+                            <label>{questions.question3}</label>
+                            <input className="imput-form" value={answer3} placeholder="Answer" onChange={(e) => {setAnswer3(e.target.value)}}/>
                             <label >Question 4: </label>
-                            <label >{questions.question4}</label>
                             <br />
-                            <input className="imput-form" value={Q4} onChange={(e) => setQ4(e.target.value)}/>
-    
+                            <label>{questions.question4}</label>
+                            <input className="imput-form" value={answer4} placeholder="Answer" onChange={(e) => {setAnswer4(e.target.value)}}/>
                             <label >Question 5: </label>
-                            <label >{questions.question5}</label>
                             <br />
-                            <input className="imput-form" value={Q5} onChange={(e) => setQ5(e.target.value)}/>
-    
+                            <label>{questions.question5}</label>
+                            <input className="imput-form" value={answer5} placeholder="Answer" onChange={(e) => {setAnswer5(e.target.value)}}/>
                             <label >Question 6: </label>
-                            <label >{questions.question6}</label>
                             <br />
-                            <input className="imput-form" value={Q6} onChange={(e) => setQ6(e.target.value)}/>
-    
+                            <label>{questions.question6}</label>
+                            <input className="imput-form" value={answer6} placeholder="Answer" onChange={(e) => {setAnswer6(e.target.value)}}/>
                             <label >Question 7: </label>
-                            <label >{questions.question7}</label>
                             <br />
-                            <input className="imput-form" value={Q7} onChange={(e) => setQ7(e.target.value)}/>
-    
+                            <label>{questions.question7}</label>
+                            <input className="imput-form" value={answer7} placeholder="Answer" onChange={(e) => {setAnswer7(e.target.value)}}/>
                             <label >Question 8: </label>
-                            <label >{questions.question8}</label>
                             <br />
-                            <input className="imput-form" value={Q8} onChange={(e) => setQ8(e.target.value)}/>
-    
+                            <label>{questions.question8}</label>
+                            <input className="imput-form" value={answer8} placeholder="Answer" onChange={(e) => {setAnswer8(e.target.value)}}/>
                             <label >Question 9: </label>
-                            <label >{questions.question9}</label>
                             <br />
-                            <input className="imput-form" value={Q9} onChange={(e) => setQ9(e.target.value)}/>
-    
+                            <label>{questions.question9}</label>
+                            <input className="imput-form" value={answer9} placeholder="Answer" onChange={(e) => {setAnswer9(e.target.value)}}/>
                             <label >Question 10: </label>
-                            <label >{questions.question10}</label>
                             <br />
-                            <input className="imput-form" value={Q10} onChange={(e) => setQ10(e.target.value)}/>
-                            <button type="submit">Submit</button>
+                            <label>{questions.question10}</label>
+                            <input className="imput-form" value={answer10} placeholder="Answer" onChange={(e) => {setAnswer10(e.target.value)}}/>
+                            <button type="submit" onClick={handleClickStudent}>Submit Answers</button>
+                            
                         </form>
                         </Paper>
                          ))}
