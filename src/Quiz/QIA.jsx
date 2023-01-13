@@ -42,7 +42,7 @@ export const QIA = ({userID}) => {
     const [course, setCourse] = useState('');
     const [studentId, setStudentId] = useState(userID);
     const [id, setID] = useState('');
-    const [quizId, setQuizID] = useState('');
+    const [quizId, setQuizID] = useState(2);
 
 
     const [quizArray, setQuizArray] = useState([]);
@@ -83,13 +83,7 @@ export const QIA = ({userID}) => {
 
     function addAnswers(){
 
-        fetch("http://localhost:8080/quiz/getLastQuiz")
-            .then(resId => resId.json())
-            .then((resultID)=>{setQuizID(resultID)})
-        
-        
-        setQuizID(quizId + 1);
-        console.log({quizId});
+        setQuizID(2);
         
 
         const newAnswerSet={id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, quizId}
