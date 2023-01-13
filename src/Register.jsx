@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 
 export const Register = (props) => {
+    
     const [email, setEmail] = useState('');
     const [password, setPass] = useState('');
     const [username, setName] = useState('');
     const [id, setID] = useState('');
     const [role, setRole] = useState('');
     const [goToLogin, setGoToLogin] = useState(false);
+    const [info, setInfo] = useState(0);
+
 
     if(goToLogin)
     {
@@ -22,7 +25,7 @@ export const Register = (props) => {
     const handleClick = (e) =>
     {
         e.preventDefault()
-        const userIF={id, username, email, password, role}
+        const userIF={id, username, email, password, role, info}
         console.log(userIF)
         fetch("http://localhost:8080/user/addUser",{
             method:"POST",
