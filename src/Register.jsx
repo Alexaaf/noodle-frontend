@@ -11,11 +11,7 @@ export const Register = (props) => {
     const [goToLogin, setGoToLogin] = useState(false);
     const [info, setInfo] = useState(0);
 
-
-    if(goToLogin)
-    {
-        return <Navigate to= "/login" />
-    }
+    if(goToLogin){  return <Navigate to= "/login" />}
 
     const handleSubmit = (e) => {
         e.preventDefault();

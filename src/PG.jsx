@@ -11,10 +11,10 @@ export const PG = (props) => {
             <a href="/" className="home-title">Noodle</a>
             <ul>
                 <li>
-                    <a href="/account">Account</a>
+                    <a href="/account"></a>
                 </li>
                 <li>
-                    <a href="/grades">Grades</a>
+                    <a href="/grades"></a>
                 </li>
             </ul>
             </nav>

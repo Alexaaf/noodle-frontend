@@ -30,6 +30,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+          <Route path="/" element={<Home userID={userID} />} />
           <Route path="/home" element={<Home userID={userID} />} />
           <Route path="/login" element={<Login setUserID={setUserID} />} />
           <Route path="/register" element={<Register />} />

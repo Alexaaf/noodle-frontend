@@ -43,6 +43,7 @@ export const QIA = ({userID}) => {
     const [studentId, setStudentId] = useState(userID);
     const [id, setID] = useState('');
     const [quizId, setQuizID] = useState(2);
+    const [response, setResponse] = useState(null);
 
 
     const [quizArray, setQuizArray] = useState([]);
@@ -68,9 +69,19 @@ export const QIA = ({userID}) => {
         addAnswers();
     }
 
+    function addGrade(nota){
+        console.log(nota)
+        fetch("http://localhost:8080/grade/addGrade",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(nota)
+        }).then(() => {console.log("New grade added!")})
+    }
+
     const handleClickStudent = (e) =>
     {
         e.preventDefault()
+        setCourse("IA");
         const newAnswerSet={id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, quizId, studentId}
         console.log(newAnswerSet)
         
@@ -78,15 +89,18 @@ export const QIA = ({userID}) => {
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(newAnswerSet)
-        }).then(() => {console.log("New Student Answers added!")})
+        }).then(res => res.json())
+        .then((result)=>{setResponse(result);},[])
+        console.log(response);
+
+        addGrade(response);
     }
 
     function addAnswers(){
 
         setQuizID(2);
         
-
-        const newAnswerSet={id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, quizId}
+        const newAnswerSet={id, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, quizId, course}
         console.log(newAnswerSet)
         fetch("http://localhost:8080/answers/addAnswers",{
             method:"POST",
@@ -107,7 +121,7 @@ export const QIA = ({userID}) => {
                         <a href="/account">{userID}</a>
                     </li>
                     <li>
-                        <a href="/grades">Grades</a>
+                        <a href="/grades"></a>
                     </li>
                 </ul>
                 </nav>
@@ -182,7 +196,7 @@ export const QIA = ({userID}) => {
                         <a href="/account">{userID}</a>
                     </li>
                     <li>
-                        <a href="/grades">Grades</a>
+                        <a href="/grades"></a>
                     </li>
                 </ul>
                 </nav>

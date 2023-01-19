@@ -83,14 +83,14 @@ export const Home = ({userID}) => {
         <div>
             <nav className="nav">
             <a href="/" className="home-title">Noodle</a>
-            <ul>
+             <ul>
                 <li>
                     <a href="/account">{userID}</a>
                 </li>
                 <li>
-                    <a href="/grades">Admin</a>
+                    <a href="/grades"></a>
                 </li>
-            </ul>
+            </ul> 
             </nav>
             <div className="content">
                 <Sidebar/>
@@ -98,7 +98,7 @@ export const Home = ({userID}) => {
                     <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
                         <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
                             <b>Inteligenta artificiala</b> <br/> <br/>
-                            Prof. Marginean Mihaela <br/>
+                            Prof. Anca Marginean <br/>
                             2022/2023 - UTCN/AC
                         </Paper>
                         <div className="button-allign">
@@ -113,7 +113,7 @@ export const Home = ({userID}) => {
                     <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
                         <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
                             <b>Proiectare grafica</b> <br/> <br/>
-                            Prof. Sabau Cosmin <br/>
+                            Prof. Adrian Sabau <br/>
                             2022/2023 - UTCN/AC
                         </Paper>
                         <div className="button-allign">
@@ -128,7 +128,7 @@ export const Home = ({userID}) => {
                     <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
                         <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
                             <b>Ingineria Sistemelor</b> <br/> <br/>
-                            Prof. Enea ItiFuraFemeia <br/>
+                            Prof. Eneia Todoran <br/>
                             2022/2023 - UTCN/AC
                         </Paper>
                         <div className="button-allign">
@@ -143,7 +143,7 @@ export const Home = ({userID}) => {
                     <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
                         <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
                             <b>Structura Sistemelor de Calcul</b> <br/> <br/>
-                            Prof. Lisman Sorinel <br/>
+                            Prof. Florin Lisman <br/>
                             2022/2023 - UTCN/AC
                         </Paper>
                         <div className="button-allign">
@@ -158,7 +158,7 @@ export const Home = ({userID}) => {
                     <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
                         <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
                             <b>Programare Functionala</b> <br/> <br/>
-                            Prof. Marin Sorescu <br/>
+                            Prof. Radu Slavescu <br/>
                             2022/2023 - UTCN/AC
                         </Paper>
                         <div className="button-allign">
@@ -172,8 +172,8 @@ export const Home = ({userID}) => {
                     </Paper>
                     <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
                         <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
-                            <b>Programare Microprocesoarelor</b> <br/> <br/>
-                            Prof. Roman Petre <br/>
+                            <b>Programare cu microprocesoare</b> <br/> <br/>
+                            Prof. Mihai Negru <br/>
                             2022/2023 - UTCN/AC
                         </Paper>
                         <div className="button-allign">
@@ -190,116 +190,123 @@ export const Home = ({userID}) => {
         </div>
     )
     }else{
-        return (
-            <div>
-                <nav className="nav">
-                <a href="/" className="home-title">Noodle</a>
-                <ul>
-                    <li>
-                        <a href="/account">{userID}</a>
-                    </li>
-                    <li>
-                        <a href="/grades">Grades</a>
-                    </li>
-                </ul>
-                </nav>
-                <div className="content">
-                    <Sidebar/>
-                    <div className="paper-move-course">
-                        <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
-                            <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
-                                <b>Inteligenta artificiala</b> <br/> <br/>
-                                Prof. Marginean Mihaela <br/>
-                                2022/2023 - UTCN/AC
+        if(ID != 0)
+        {
+            return (
+                <div>
+                    <nav className="nav">
+                    <a href="/" className="home-title">Noodle</a>
+                     <ul>
+                         <li>
+                            <a href="/account">{userID}</a>
+                        </li> 
+                        <li>
+                            <a href="/grades"></a>
+                        </li>
+                    </ul>
+                    </nav>
+                    <div className="content">
+                        <Sidebar/>
+                        <div className="paper-move-course">
+                            <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
+                                <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
+                                    <b>Inteligenta artificiala</b> <br/> <br/>
+                                    Prof. Anca Marginean <br/>
+                                    2022/2023 - UTCN/AC
+                                </Paper>
+                                <div className="button-allign">
+                                    <button className="button-lecture" onClick={() => setGoToIA(true)}>
+                                        Lecture
+                                    </button>
+                                    <button className="button-quiz" onClick={() => setGoToQIA(true)}>
+                                        Quiz
+                                    </button>
+                                </div>
                             </Paper>
-                            <div className="button-allign">
-                                <button className="button-lecture" onClick={() => setGoToIA(true)}>
-                                    Lecture
-                                </button>
-                                <button className="button-quiz" onClick={() => setGoToQIA(true)}>
-                                    Quiz
-                                </button>
-                            </div>
-                        </Paper>
-                        <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
-                            <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
-                                <b>Proiectare grafica</b> <br/> <br/>
-                                Prof. Sabau Cosmin <br/>
-                                2022/2023 - UTCN/AC
+                            <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
+                                <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
+                                    <b>Proiectare grafica</b> <br/> <br/>
+                                    Prof. Adrian Sabau <br/>
+                                    2022/2023 - UTCN/AC
+                                </Paper>
+                                <div className="button-allign">
+                                    <button className="button-lecture" onClick={() => setGoToPG(true)}>
+                                        Lecture
+                                    </button>
+                                    <button className="button-quiz" onClick={() => setGoToQPG(true)}>
+                                        Quiz
+                                    </button>
+                                </div>
                             </Paper>
-                            <div className="button-allign">
-                                <button className="button-lecture" onClick={() => setGoToPG(true)}>
-                                    Lecture
-                                </button>
-                                <button className="button-quiz" onClick={() => setGoToQPG(true)}>
-                                    Quiz
-                                </button>
-                            </div>
-                        </Paper>
-                        <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
-                            <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
-                                <b>Ingineria Sistemelor</b> <br/> <br/>
-                                Prof. Enea ItiFuraFemeia <br/>
-                                2022/2023 - UTCN/AC
+                            <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
+                                <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
+                                    <b>Ingineria Sistemelor</b> <br/> <br/>
+                                    Prof. Eneia Todoran <br/>
+                                    2022/2023 - UTCN/AC
+                                </Paper>
+                                <div className="button-allign">
+                                    <button className="button-lecture" onClick={() => setGoToIS(true)}>
+                                        Lecture
+                                    </button>
+                                    <button className="button-quiz" onClick={() => setGoToQIS(true)}>
+                                        Quiz
+                                    </button>
+                                </div>
                             </Paper>
-                            <div className="button-allign">
-                                <button className="button-lecture" onClick={() => setGoToIS(true)}>
-                                    Lecture
-                                </button>
-                                <button className="button-quiz" onClick={() => setGoToQIS(true)}>
-                                    Quiz
-                                </button>
-                            </div>
-                        </Paper>
-                        <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
-                            <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
-                                <b>Structura Sistemelor de Calcul</b> <br/> <br/>
-                                Prof. Lisman Sorinel <br/>
-                                2022/2023 - UTCN/AC
+                            <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
+                                <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
+                                    <b>Structura Sistemelor de Calcul</b> <br/> <br/>
+                                    Prof. Florin Lisman <br/>
+                                    2022/2023 - UTCN/AC
+                                </Paper>
+                                <div className="button-allign">
+                                    <button className="button-lecture" onClick={() => setGoToSSC(true)}>
+                                        Lecture
+                                    </button>
+                                    <button className="button-quiz" onClick={() => setGoToQSSC(true)}>
+                                        Quiz
+                                    </button>
+                                </div>
                             </Paper>
-                            <div className="button-allign">
-                                <button className="button-lecture" onClick={() => setGoToSSC(true)}>
-                                    Lecture
-                                </button>
-                                <button className="button-quiz" onClick={() => setGoToQSSC(true)}>
-                                    Quiz
-                                </button>
-                            </div>
-                        </Paper>
-                        <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
-                            <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
-                                <b>Programare Functionala</b> <br/> <br/>
-                                Prof. Marin Sorescu <br/>
-                                2022/2023 - UTCN/AC
+                            <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
+                                <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
+                                    <b>Programare Functionala</b> <br/> <br/>
+                                    Prof. Radu Slavescu <br/>
+                                    2022/2023 - UTCN/AC
+                                </Paper>
+                                <div className="button-allign">
+                                    <button className="button-lecture" onClick={() => setGoToPF(true)}>
+                                        Lecture
+                                    </button>
+                                    <button className="button-quiz" onClick={() => setGoToQPF(true)}>
+                                        Quiz
+                                    </button>
+                                </div>
                             </Paper>
-                            <div className="button-allign">
-                                <button className="button-lecture" onClick={() => setGoToPF(true)}>
-                                    Lecture
-                                </button>
-                                <button className="button-quiz" onClick={() => setGoToQPF(true)}>
-                                    Quiz
-                                </button>
-                            </div>
-                        </Paper>
-                        <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
-                            <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
-                                <b>Programare Microprocesoarelor</b> <br/> <br/>
-                                Prof. Roman Petre <br/>
-                                2022/2023 - UTCN/AC
+                            <Paper elevation={6} style={{width:"33%", height:"237.5px", background:"black"}}>
+                                <Paper elevation={6} style={{margin:"0px",padding:"47px",textAlign:"left"}}>
+                                    <b>Programare cu microprocesoare</b> <br/> <br/>
+                                    Prof. Mihai Negru <br/>
+                                    2022/2023 - UTCN/AC
+                                </Paper>
+                                <div className="button-allign">
+                                    <button className="button-lecture" onClick={() => setGoToPM(true)}>
+                                        Lecture
+                                    </button>
+                                    <button className="button-quiz" onClick={() => setGoToQPM(true)}>
+                                        Quiz
+                                    </button>
+                                </div>
                             </Paper>
-                            <div className="button-allign">
-                                <button className="button-lecture" onClick={() => setGoToPM(true)}>
-                                    Lecture
-                                </button>
-                                <button className="button-quiz" onClick={() => setGoToQPM(true)}>
-                                    Quiz
-                                </button>
-                            </div>
-                        </Paper>
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        }
+        else{
+            return <Navigate to= "/login" />
+        }
+        
     }
 
 }

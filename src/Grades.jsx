@@ -27,7 +27,7 @@ export const  Grades = ({userID}) => {
                     <a href="/account">{userID}</a>
                 </li>
                 <li>
-                    <a href="/grades">Grades</a>
+                    <a href="/grades"></a>
                 </li>
             </ul>
             </nav>
